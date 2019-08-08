@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>灞桥区统计分析系统</title>
+    <link rel="stylesheet" href="css/tongji.css">
+    <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+    <link rel="stylesheet" href="css/easydialog.css">
+    <script type="text/javascript" src="js/easydialog.js"></script>
+    <script type="text/javascript" src="js/echarts.js"></script>
+    <script type="text/javascript" src="js/tongji.js"></script>
+    <script type="text/javascript" src="js/echarts-gl.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/echarts-liquidfill.js"></script>
+    <script type="text/javascript" src="VIS/dist/vis.js"></script>
+    <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        <!--
+        $(window).resize(function ()// 绑定到窗口的这个事件中
+        {
+            // var whdef = 100/1920;// 表示1920的设计图,使用100PX的默认值
+            var whdef = 100 / 916;// 表示1920的设计图,使用100PX的默认值
+            var wH = window.innerHeight;// 当前窗口的高度
+            var wW = window.innerWidth;// 当前窗口的宽度
+            // var rem = wW * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+            var rem = wH * whdef;// 以默认比例值乘以当前窗口宽度,得到该宽度下的相应FONT-SIZE值
+            $('html').css('font-size', rem + "px");
+            // myChart1.resize();
+            myChart2.resize();
+            myChart3.resize();
+            myChart4.resize();
+        });
+        //-->
+    </script>
+    <style>
+        #dialog {
+            height: 600px;
+            width: 900px;
+            border: 2px solid #d5d9dc;
+            box-shadow: 2px 2px 2px 1px #666666;
+        }
+
+        #easyDialogTitle {
+            color: #d5d9dc;
+            font-size: 20px;
+        }
+
+        #closeBtn img {
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="herder_bg"></div>
+        <a id="switch_btn" href="数据%202019_1.html"></a>
+    </header>
+    <article>
+
+        <div id="dialog" class="easyDialog_wrapper">
+            <div class="easyDialog_content">
+                <div class="easyDialog_title" id="easyDialogTitle">
+                    <a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn"><font
+                            color="red">新闻详情及图谱分析</font> <img src="easydialog-v2.0/close.png"></a>
+                    <!--                    <img src="./easydialog-v2.0/test_img.jpg" alt=""/>-->
+                </div>
+
+
+                <!--                <div class="sun-title"><font color="aqua">新闻事件:</font></div>-->
+                <!--                <div class="sun-title"><font color="aqua">时间:</font></div>-->
+                <!--                <div class="sun-title"><font color="aqua">新闻摘要:</font></div>-->
+                <div style="background: #bce8f1">
+                    <li style="color: #007fbe">新闻标题 : 2019年中美贸易战最新新闻消息 中国反制应对策略措施</li>
+                    <li style="color: #007fbe">时间 : 2019-05-15 10:37</li>
+                    <li style="color: #007fbe">新闻摘要</li>
+                </div>
+                <div style="background: #fcfcfc">
+                    2019年中美贸易战最新新闻消息中国反制应对策略措施新华社北京5月14日电（记者侯晓晨）外交部发言人耿爽14日说，对于贸易战，中国不想打、不愿打，但也绝不怕打。奉劝美方早日认清形势，回归正轨，同中方相向而行，争取在相互尊重的基础上达成一个互利双赢的协议。有记者问：连日来，美方多次威胁将对价值约3000亿美元中国输美产品加征关税，又称将于6月17日就此举行听证会。中方对此有何评论？“中方一再表示，加征关税解决不了任何问题，发起贸易战只会损人害己。”耿爽在例行记者会上说，“对于贸易战，中国不想打、不愿打，但也绝不怕打。如果有人打到家门口，我们必然会奉陪到底。”耿爽说，中方从来不会屈从于任何外部压力，我们有决心、有能力捍卫自身合法正当权益。他回顾了去年以来中方对美方有关言行的反应：——去年4月，美方首次宣布对中国输美产品加征关税，中方在第一时间作出强有力的回应。此后，美方又不断发出新的威胁，几次正式实施加征关税措施，中方都立即予以坚决反制。——上周，美方威胁要将对中国2000亿输美产品加征关税的税率由10%上调至25%，引起国际社会一片哗然和金融市场剧烈反应。当时中方说，美方的这种威胁已经不是第一次了，中方的立场态度十分明确，美方也很清楚
+                </div>
+                <div style="background: #bce8f1">
+                    <li style="color:#007fbe">新闻内容抽取图谱展示</li>
+                </div>
+                <!--                <div style="width: 200px;height: 100px"></div>-->
+                <div id="ec5" style="width: 900px;height: 500px;background-color: #4f81bd" align="center"></div>
+
+            </div>
+        </div>
+
+        <div class="wrap">
+            <div class="wrap-left">
+                <div class="left-top sun-div">
+                    <div class="sun-title"><span class="">中美贸易战各省微博关注情况</span></div>
+                    <div class="left-top-ec">
+
+                        <!--统计图一-->
+                        <div id="ec1" style="width: 560px;height: 400px;">
+                        </div>
+                        <!--统计图二-->
+                        <!--                        <div id="ec2">-->
+                        <!--                        </div>-->
+                    </div>
+                </div>
+                <div class="left-btm sun-div">
+                    <div class="sun-title"><span class="">爬取新闻情况概览</span></div>
+
+                    <div class="notice1">
+                        <ul>
+
+
+                            <li>
+                                <button onclick="myFunction()">新闻内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中国反制应对策略措施</b><span
+                                    class="r">05-15 10:37</span></li>
+                            <li>
+                                <button onclick="myFunction()">新闻内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战再次打响，中国硬气反击，关税首位就是马匹</b><span
+                                    class="r">05-15 11:45</span></li>
+                            <li>
+                                <button onclick="myFunction()">知乎内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战加剧之际,特朗普采取行动遏制华为</b><span
+                                    class="r">05-16 09:00</span></li>
+                            <li>
+                                <button onclick="myFunction()">新闻内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战升级，双方分别对对方征收关税和反关税，汽车行业也受影响</b><span
+                                    class="r">05-16 16:50</span></li>
+                            <li>
+                                <button onclick="myFunction()">微信公众号内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中国首次启动关税排除程序</b><span
+                                    class="r">05-19 10:29</span></li>
+                            <li>
+                                <button onclick="myFunction()">微博内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战停火！止战</b><span
+                                    class="r">05-20 09:27</span></li>
+                            <li>
+                                <button onclick="myFunction()">新闻内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">磋商遭遇重大挫折 中国贸促加大力度</b><span
+                                    class="r">05-20 11:31</span></li>
+                            <li>
+                                <button onclick="myFunction()">微信公众号内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战没有“停火，止战”！</b><span
+                                    class="r">05-20 08:28</span></li>
+                            <li>
+                                <button onclick="myFunction()">新闻内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战谈判最新消息2019 贸易战关税清单出来了吗？</b><span
+                                    class="r">05-21 10:04</span></li>
+                            <li>
+                                <button onclick="myFunction()">知乎内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战最新进展2019-2019中美贸易战进展
+                                    特朗普称还没准备好与中方达成协议</b><span
+                                    class="r">05-27 17:25</span></li>
+                            <li>
+                                <button onclick="myFunction()">知乎内容抽取</button>
+                                <b class="litext" title="关于XX申请筹建幼儿园">中美贸易战成舆论关注重点 贸易战发动影响全球经济</b><span
+                                    class="r">05-27 14:49</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="wrap-right">
+                <div class="right-top sun-div">
+                    <div class="sun-title"><span class="">中美贸易战微博热度变化图</span></div>
+
+                    <div id="ec2" style="width: 820px;height: 400px;">
+                    </div>
+                </div>
+                <div class="right-btm">
+                    <div class="r-btm-left">
+                        <div class="sun-title"><span class="">中美贸易摩擦关键时间点</span></div>
+                        <table class="ri-table">
+                            <tr>
+                                <td style="width: 40%;"><span style="color:#fda400;position: relative;">时间</span></td>
+                                <td style="width: 30%;"><span style="color:#fda400">美国加增关税量</span></td>
+                                <td style="width: 30%;"><span style="color:#fda400">中国加增关税量</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>2018年4月3日</td>
+                                <td>约500亿美元的中国进口商品征收25%关税</td>
+                                <td>进口的340亿美元商品征收25%关税</td>
+                            </tr>
+                            <tr>
+                                <td>2018年6月15日</td>
+                                <td>对中国进口的340亿美元商品征收25%关税</td>
+                                <td>对340亿美元的美国商品征收关税</td>
+                            </tr>
+                            <tr>
+                                <td>2018年8月7日</td>
+                                <td>160亿美元中国商品加增收25%关税清单</td>
+                                <td>对160亿美元的美国商品征收25%的报复性关税</td>
+                            </tr>
+                            <tr>
+                                <td>2018年9月24日</td>
+                                <td>对2000亿美元的中国进口商品征收10%的关税</td>
+                                <td>对600亿美元美国商品征收关税</td>
+                            </tr>
+                             <tr>
+                                <td>2019年5月10日</td>
+                                <td>对2000亿美元中国输美商品加征的关税正式从10%上调至25%</td>
+                                <td>对600亿美元美国商品征收关税</td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+            </div>
+        </div>
+    </article>
+</div>
+<script type="text/javascript">
+    //var myChart1 = echarts.init(document.getElementById('ec1'));
+    var myChart2 = echarts.init(document.getElementById('ec2'));
+    var myChart3 = echarts.init(document.getElementById('ec3'));
+    var myChart4 = echarts.init(document.getElementById('ec4'));
+
+
+</script>
+<script type="text/javascript">
+    var nodes = [{'group': 'Event', 'id': 86, 'label': '关税'}, {
+        'group': 'Event',
+        'id': 19,
+        'label': '关键词'
+    }, {'group': 'Event', 'id': 166, 'label': '美国'}, {'group': 'Event', 'id': 90, 'label': '美方'}, {
+        'group': 'Event',
+        'id': 92,
+        'label': '中方'
+    }, {'group': 'Event', 'id': 239, 'label': '中国'}, {'group': 'Event', 'id': 98, 'label': '消费者'}, {
+        'group': 'Event',
+        'id': 102,
+        'label': '经济'
+    }, {'group': 'Event', 'id': 96, 'label': '贸易战'}, {'group': 'Event', 'id': 100, 'label': '加征'}, {
+        'group': 'Event',
+        'id': 18,
+        'label': '宣布'
+    }, {'group': 'Event', 'id': 21, 'label': '反制对'}, {'group': 'Event', 'id': 29, 'label': '想打'}, {
+        'group': 'Event',
+        'id': 104,
+        'label': '威胁'
+    }, {'group': 'Event', 'id': 71, 'label': '输美'}, {'group': 'Event', 'id': 39, 'label': '宣布加'}, {
+        'group': 'Event',
+        'id': 35,
+        'label': '威胁上调'
+    }, {'group': 'Event', 'id': 41, 'label': '宣布上调'}, {'group': 'Event', 'id': 45, 'label': '上调'}, {
+        'group': 'Event',
+        'id': 47,
+        'label': '抛有利论'
+    }, {'group': 'Event', 'id': 49, 'label': '支付关税'}, {'group': 'Event', 'id': 51, 'label': '带来财富'}, {
+        'group': 'Event',
+        'id': 53,
+        'label': '减速'
+    }, {'group': 'Event', 'id': 55, 'label': '是馅饼'}, {'group': 'Event', 'id': 57, 'label': '欣欣向荣'}, {
+        'group': 'Event',
+        'id': 58,
+        'label': '伙伴'
+    }, {'group': 'Event', 'id': 61, 'label': '造成承担'}, {'group': 'Event', 'id': 63, 'label': '承担成本'}, {
+        'group': 'Event',
+        'id': 67,
+        'label': '减少岗位'
+    }, {'group': 'Event', 'id': 69, 'label': '征收关税'}, {'group': 'Event', 'id': 73, 'label': '收取'}, {
+        'group': 'Event',
+        'id': 75,
+        'label': '承受'
+    }, {'group': 'Event', 'id': 77, 'label': '强加关税'}, {'group': 'Event', 'id': 79, 'label': '是中国'}, {
+        'group': 'Event',
+        'id': 81,
+        'label': '伤害腹地'
+    }, {'group': 'Event', 'id': 83, 'label': '影响有'}, {'group': 'Event', 'id': 85, 'label': '发展'}, {
+        'group': 'Event',
+        'id': 105,
+        'label': '高频词'
+    }, {'group': 'Event', 'id': 129, 'label': '地名'}, {'group': 'Event', 'id': 225, 'label': '美'}, {
+        'group': 'Event',
+        'id': 234,
+        'label': '中'
+    }, {'group': 'Event', 'id': 238, 'label': '加'}, {'group': 'Event', 'id': 233, 'label': '耿爽'}, {
+        'group': 'Event',
+        'id': 117,
+        'label': '人物'
+    }, {'group': 'Event', 'id': 231, 'label': '新华社'}, {'group': 'Event', 'id': 135, 'label': '机构'}, {
+        'group': 'Event',
+        'id': 235,
+        'label': '北京'
+    }, {'group': 'Event', 'id': 122, 'label': '美国政府'}, {'group': 'Event', 'id': 229, 'label': '外交部'}, {
+        'group': 'Event',
+        'id': 126,
+        'label': '中国国务院'
+    }, {'group': 'Event', 'id': 128, 'label': '英国'}, {
+        'group': 'Event',
+        'id': 249,
+        'label': '纽约联邦储备银行'
+    }, {'group': 'Event', 'id': 250, 'label': '普林斯顿大学'}, {'group': 'Event', 'id': 251, 'label': '哥伦比亚大学'}];
+    var edges = [{'from': 86, 'label': '', 'to': 19}, {'from': 166, 'label': '', 'to': 19}, {
+        'from': 90,
+        'label': '',
+        'to': 19
+    }, {'from': 92, 'label': '', 'to': 19}, {'from': 239, 'label': '', 'to': 19}, {
+        'from': 98,
+        'label': '',
+        'to': 19
+    }, {'from': 102, 'label': '', 'to': 19}, {'from': 96, 'label': '', 'to': 19}, {
+        'from': 100,
+        'label': '',
+        'to': 19
+    }, {'from': 18, 'label': '', 'to': 19}, {'from': 239, 'label': '', 'to': 21}, {
+        'from': 239,
+        'label': '',
+        'to': 29
+    }, {'from': 90, 'label': '', 'to': 104}, {'from': 239, 'label': '', 'to': 71}, {
+        'from': 239,
+        'label': '',
+        'to': 29
+    }, {'from': 90, 'label': '', 'to': 39}, {'from': 239, 'label': '', 'to': 71}, {
+        'from': 90,
+        'label': '',
+        'to': 35
+    }, {'from': 239, 'label': '', 'to': 71}, {'from': 90, 'label': '', 'to': 39}, {
+        'from': 90,
+        'label': '',
+        'to': 41
+    }, {'from': 239, 'label': '', 'to': 71}, {'from': 86, 'label': '', 'to': 45}, {
+        'from': 90,
+        'label': '',
+        'to': 47
+    }, {'from': 239, 'label': '', 'to': 49}, {'from': 86, 'label': '', 'to': 51}, {
+        'from': 239,
+        'label': '',
+        'to': 53
+    }, {'from': 86, 'label': '', 'to': 55}, {'from': 102, 'label': '', 'to': 57}, {
+        'from': 58,
+        'label': '',
+        'to': 100
+    }, {'from': 86, 'label': '', 'to': 61}, {'from': 98, 'label': '', 'to': 63}, {
+        'from': 239,
+        'label': '',
+        'to': 71
+    }, {'from': 166, 'label': '', 'to': 67}, {'from': 166, 'label': '', 'to': 69}, {
+        'from': 239,
+        'label': '',
+        'to': 71
+    }, {'from': 166, 'label': '', 'to': 73}, {'from': 98, 'label': '', 'to': 75}, {
+        'from': 166,
+        'label': '',
+        'to': 77
+    }, {'from': 166, 'label': '', 'to': 79}, {'from': 86, 'label': '', 'to': 81}, {
+        'from': 96,
+        'label': '',
+        'to': 83
+    }, {'from': 102, 'label': '', 'to': 85}, {'from': 86, 'label': '', 'to': 105}, {
+        'from': 166,
+        'label': '',
+        'to': 105
+    }, {'from': 90, 'label': '', 'to': 105}, {'from': 92, 'label': '', 'to': 105}, {
+        'from': 239,
+        'label': '',
+        'to': 105
+    }, {'from': 96, 'label': '', 'to': 105}, {'from': 98, 'label': '', 'to': 105}, {
+        'from': 100,
+        'label': '',
+        'to': 105
+    }, {'from': 102, 'label': '', 'to': 105}, {'from': 104, 'label': '', 'to': 105}, {
+        'from': 166,
+        'label': '',
+        'to': 129
+    }, {'from': 239, 'label': '', 'to': 129}, {'from': 225, 'label': '', 'to': 129}, {
+        'from': 234,
+        'label': '',
+        'to': 129
+    }, {'from': 238, 'label': '', 'to': 129}, {'from': 233, 'label': '', 'to': 117}, {
+        'from': 231,
+        'label': '',
+        'to': 135
+    }, {'from': 235, 'label': '', 'to': 129}, {'from': 122, 'label': '', 'to': 135}, {
+        'from': 229,
+        'label': '',
+        'to': 135
+    }, {'from': 126, 'label': '', 'to': 135}, {'from': 128, 'label': '', 'to': 129}, {
+        'from': 249,
+        'label': '',
+        'to': 135
+    }, {'from': 250, 'label': '', 'to': 135}, {'from': 251, 'label': '', 'to': 135}, {
+        'from': 239,
+        'label': '',
+        'to': 225
+    }, {'from': 225, 'label': '', 'to': 239}, {'from': 225, 'label': '', 'to': 234}, {
+        'from': 234,
+        'label': '',
+        'to': 225
+    }, {'from': 239, 'label': '', 'to': 166}, {'from': 166, 'label': '', 'to': 239}, {
+        'from': 239,
+        'label': '',
+        'to': 234
+    }, {'from': 234, 'label': '', 'to': 239}, {'from': 231, 'label': '', 'to': 235}, {
+        'from': 235,
+        'label': '',
+        'to': 231
+    }, {'from': 225, 'label': '', 'to': 166}, {'from': 234, 'label': '', 'to': 166}, {
+        'from': 166,
+        'label': '',
+        'to': 225
+    }, {'from': 166, 'label': '', 'to': 234}, {'from': 238, 'label': '', 'to': 166}, {
+        'from': 166,
+        'label': '',
+        'to': 238
+    }, {'from': 229, 'label': '', 'to': 239}, {'from': 229, 'label': '', 'to': 231}, {
+        'from': 229,
+        'label': '',
+        'to': 233
+    }, {'from': 229, 'label': '', 'to': 225}, {'from': 229, 'label': '', 'to': 235}, {
+        'from': 229,
+        'label': '',
+        'to': 234
+    }, {'from': 239, 'label': '', 'to': 229}, {'from': 239, 'label': '', 'to': 231}, {
+        'from': 239,
+        'label': '',
+        'to': 233
+    }, {'from': 239, 'label': '', 'to': 235}, {'from': 231, 'label': '', 'to': 229}, {
+        'from': 231,
+        'label': '',
+        'to': 239
+    }, {'from': 231, 'label': '', 'to': 233}, {'from': 231, 'label': '', 'to': 225}, {
+        'from': 231,
+        'label': '',
+        'to': 234
+    }, {'from': 233, 'label': '', 'to': 229}, {'from': 233, 'label': '', 'to': 239}, {
+        'from': 233,
+        'label': '',
+        'to': 231
+    }, {'from': 233, 'label': '', 'to': 225}, {'from': 233, 'label': '', 'to': 235}, {
+        'from': 233,
+        'label': '',
+        'to': 234
+    }, {'from': 225, 'label': '', 'to': 229}, {'from': 225, 'label': '', 'to': 231}, {
+        'from': 225,
+        'label': '',
+        'to': 233
+    }, {'from': 225, 'label': '', 'to': 235}, {'from': 235, 'label': '', 'to': 229}, {
+        'from': 235,
+        'label': '',
+        'to': 239
+    }, {'from': 235, 'label': '', 'to': 233}, {'from': 235, 'label': '', 'to': 225}, {
+        'from': 235,
+        'label': '',
+        'to': 234
+    }, {'from': 234, 'label': '', 'to': 229}, {'from': 234, 'label': '', 'to': 231}, {
+        'from': 234,
+        'label': '',
+        'to': 233
+    }, {'from': 234, 'label': '', 'to': 235}, {'from': 239, 'label': '', 'to': 238}, {
+        'from': 238,
+        'label': '',
+        'to': 239
+    }, {'from': 249, 'label': '', 'to': 251}, {'from': 249, 'label': '', 'to': 250}, {
+        'from': 251,
+        'label': '',
+        'to': 249
+    }, {'from': 251, 'label': '', 'to': 250}, {'from': 250, 'label': '', 'to': 249}, {
+        'from': 250,
+        'label': '',
+        'to': 251
+    }];
+
+    var container = document.getElementById("ec5");
+
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+
+    var options = {
+        nodes: {
+            shape: 'circle',
+
+            size: 15,
+            font: {
+                size: 15,
+                color:'red'
+            },
+
+        },
+        edges: {
+            font: {
+                size: 10,
+                align: 'center'
+            },
+            color: '#FFA800',
+            arrows: {
+                to: {enabled: true, scaleFactor: 1.2}
+            },
+            smooth: {enabled: true}
+        },
+        physics: {
+            enabled: true
+        }
+    };
+
+    var network = new vis.Network(container, data, options);
+
+</script>
+<script>
+    function myFunction() {
+
+
+        //动态改变标题名称
+        // document.getElementById
+        // ('easyDialogTitle').innerHTML = '<a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn"><img src="../easydialog-v2.0/close.png"></a>' + "柱状图"
+
+        easyDialog.open({
+
+            container: 'dialog',
+            fixed: false,
+            overlay: false
+
+        });
+
+    }</script>
+
+<script>
+    var data = [
+        {name: '北京', value: 9268},
+        {name: '广东', value: 5830},
+
+        {name: '上海', value: 4561},
+        {name: '江苏', value: 2295},
+        {name: '浙江', value: 2004},
+        {name: '山东', value: 1915},
+        {name: '海外', value: 1809},
+        {name: '湖北', value: 1774},
+        {name: '四川', value: 1418},
+        {name: '河南', value: 1408},
+        {name: '福建', value: 1161},
+        {name: '湖南', value: 993},
+        {name: '河北', value: 978},
+        {name: '安徽', value: 916},
+        {name: '陕西', value: 858},
+        {name: '香港', value: 807},
+        {name: '辽宁', value: 795},
+        {name: '天津', value: 740},
+        {name: '重庆', value: 499},
+        {name: '江西', value: 492},
+        {name: '山西', value: 450},
+        {name: '黑龙江', value: 440},
+        {name: '云南', value: 402},
+        {name: '广西', value: 383},
+        {name: '内蒙古', value: 354},
+        {name: '吉林', value: 332},
+        {name: '贵州', value: 240},
+        {name: '甘肃', value: 228},
+        {name: '海南', value: 201},
+        {name: '新疆', value: 194},
+        {name: '台湾', value: 103},
+        {name: '澳门', value: 92},
+        {name: '宁夏', value: 76},
+        {name: '青海', value: 69},
+        {name: '西藏', value: 67}
+    ];
+
+    var yData = [];
+    var barData = [];
+
+    for (var i = 0; i < 10; i++) {
+        barData.push(data[i]);
+        yData.push(i + data[i].name);
+    }
+
+    var option = {
+        title: [{
+            show: true,
+            text: '微博关注各省排名情况',
+            textStyle: {
+                color: '#50fd5c',
+                fontSize: 18
+            },
+            right: 45,
+            top: 40
+        }],
+        // tooltip: {
+        //     show: true,
+        //     formatter: function (params) {
+        //         return params.name + '：' + params.data['value'] / 489 + '%'
+        //     },
+        //     padding: [
+        //         5,  // 上
+        //         10, // 右
+        //         5,  // 下
+        //         10, // 左
+        //     ],
+        //     Width:3
+        //
+        // },
+        visualMap: {
+            type: 'continuous',
+            orient: 'horizontal',
+            itemWidth: 10,
+            itemHeight: 80,
+            text: ['高', '低'],
+            showLabel: true,
+            seriesIndex: [0],
+            min: 4500,
+            max: 60,
+            inRange: {
+                color: ['#50fd5c', '#ffd74c', '#ED8587', '#EB2427', '#fd4e45']
+            },
+            textStyle: {
+                color: '#7B93A7'
+            },
+            bottom: 30,
+            left: 'left',
+        },
+        grid: {
+            right: 30,
+            top: 80,
+            bottom: 50,
+            width: '20%'
+        },
+        xAxis: {
+            show: false
+        },
+        yAxis: {
+            type: 'category',
+            inverse: true,
+            nameGap: 16,
+            axisLine: {
+                show: false,
+                lineStyle: {
+                    color: '#ddd'
+                }
+            },
+            axisTick: {
+                show: false,
+                lineStyle: {
+                    color: '#ddd'
+                }
+            },
+            axisLabel: {
+                interval: 0,
+                margin: 85,
+                textStyle: {
+                    color: '#FAAA39',
+                    align: 'left',
+                    fontSize: 14
+                },
+                rich: {
+                    a: {
+                        color: '#fff',
+                        backgroundColor: '#FAAA39',
+                        width: 20,
+                        height: 20,
+                        align: 'center',
+                        borderRadius: 2
+                    },
+                    b: {
+                        color: '#fff',
+                        backgroundColor: '#4197FD',
+                        width: 20,
+                        height: 20,
+                        align: 'center',
+                        borderRadius: 2
+                    }
+                },
+                formatter: function (params) {
+                    if (parseInt(params.slice(0, 1)) < 3) {
+                        return [
+                            '{a|' + (parseInt(params.slice(0, 1)) + 1) + '}' + '  ' + params.slice(1)
+                        ].join('\n')
+                    } else {
+                        return [
+                            '{b|' + (parseInt(params.slice(0, 1)) + 1) + '}' + '  ' + params.slice(1)
+                        ].join('\n')
+                    }
+                }
+            },
+            data: yData
+        },
+        geo: {
+            // roam: true,
+            map: 'china',
+            left: 'left',
+            right: '300',
+            // layoutSize: '80%',
+            label: {
+                emphasis: {
+                    show: false
+                }
+            },
+            itemStyle: {
+                emphasis: {
+                    areaColor: '#fff464'
+                }
+            }
+        },
+        series: [{
+            name: 'china',
+            type: 'map',
+            roam: false,
+            geoIndex: 0,
+            label: {
+                show: false,
+            },
+            data: data
+        }, {
+            name: 'barSer',
+            type: 'bar',
+            roam: false,
+            visualMap: false,
+            zlevel: 2,
+            barMaxWidth: 8,
+            barGap: '50%',
+            barCategoryGap: '40%',
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        // build a color map as your need.
+                        var colorList = [{
+                            colorStops: [{
+                                offset: 0,
+                                color: '#FFD119' // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: '#FFAC4C' // 100% 处的颜色
+                            }]
+                        },
+                            {
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#00C0FA' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#2F95FA' // 100% 处的颜色
+                                }]
+                            }
+                        ];
+                        if (params.dataIndex < 3) {
+                            return colorList[0]
+                        } else {
+                            return colorList[1]
+                        }
+                    },
+                    barBorderRadius: 15
+                }
+            },
+            data: barData
+        }]
+    };
+
+    $.getJSON('china.json', function (data) {
+        echarts.registerMap('china', data);
+        var myChart1 = echarts.init(document.getElementById('ec1'));
+        myChart1.setOption(option);
+        myChart1.resize();
+    });
+
+</script>
+<script type="text/javascript">
+    /*
+     * 参数说明
+     * obj : 动画的节点，本例中是ul
+     * top : 动画的高度，本例中是-35px;注意向上滚动是负数
+     * time : 动画的速度，即完成动画所用时间，本例中是500毫秒，即marginTop从0到-35px耗时500毫秒
+     * function : 回调函数，每次动画完成，marginTop归零，并把此时第一条信息添加到列表最后;
+     *
+     */
+    function noticeUp(obj, top, time) {
+        $(obj).animate({
+            marginTop: top
+        }, time, function () {
+            $(this).css({marginTop: "0"}).find(":first").appendTo(this);
+        })
+    }
+
+    $(function () {
+        // 调用 公告滚动函数
+        setInterval("noticeUp('.notice1 ul','-35px',500)", 2000);
+    });
+</script>
+</body>
+</html>

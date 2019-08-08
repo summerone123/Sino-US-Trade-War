@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="VIS/dist/vis.js"></script>
+      <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 20, 'label': '市场'}, {'group': 'Event', 'id': 19, 'label': '关键词'}, {'group': 'Event', 'id': 22, 'label': '速卖通'}, {'group': 'Event', 'id': 4, 'label': '蓝海'}, {'group': 'Event', 'id': 6, 'label': '法国'}, {'group': 'Event', 'id': 34, 'label': '报道'}, {'group': 'Event', 'id': 10, 'label': '开拓'}, {'group': 'Event', 'id': 12, 'label': '日本'}, {'group': 'Event', 'id': 14, 'label': '韩国'}, {'group': 'Event', 'id': 16, 'label': '电商'}, {'group': 'Event', 'id': 32, 'label': '专题'}, {'group': 'Event', 'id': 39, 'label': '高频词'}, {'group': 'Event', 'id': 24, 'label': '掘金'}, {'group': 'Event', 'id': 26, 'label': '雨果网'}, {'group': 'Event', 'id': 28, 'label': '推出'}, {'group': 'Event', 'id': 30, 'label': '布局'}, {'group': 'Event', 'id': 36, 'label': '剖析'}, {'group': 'Event', 'id': 38, 'label': '表现'}, {'group': 'Event', 'id': 40, 'label': '俄罗斯'}, {'group': 'Event', 'id': 41, 'label': '地名'}];
+      var edges = [{'from': 20, 'label': '', 'to': 19}, {'from': 22, 'label': '', 'to': 19}, {'from': 4, 'label': '', 'to': 19}, {'from': 6, 'label': '', 'to': 19}, {'from': 34, 'label': '', 'to': 19}, {'from': 10, 'label': '', 'to': 19}, {'from': 12, 'label': '', 'to': 19}, {'from': 14, 'label': '', 'to': 19}, {'from': 16, 'label': '', 'to': 19}, {'from': 32, 'label': '', 'to': 19}, {'from': 20, 'label': '', 'to': 39}, {'from': 22, 'label': '', 'to': 39}, {'from': 24, 'label': '', 'to': 39}, {'from': 26, 'label': '', 'to': 39}, {'from': 28, 'label': '', 'to': 39}, {'from': 30, 'label': '', 'to': 39}, {'from': 32, 'label': '', 'to': 39}, {'from': 34, 'label': '', 'to': 39}, {'from': 36, 'label': '', 'to': 39}, {'from': 38, 'label': '', 'to': 39}, {'from': 40, 'label': '', 'to': 41}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    

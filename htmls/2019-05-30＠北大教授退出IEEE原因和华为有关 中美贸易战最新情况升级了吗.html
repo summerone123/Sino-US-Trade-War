@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="VIS/dist/vis.js"></script>
+      <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 30, 'label': '邮件'}, {'group': 'Event', 'id': 19, 'label': '关键词'}, {'group': 'Event', 'id': 64, 'label': '张海霞'}, {'group': 'Event', 'id': 34, 'label': '华为'}, {'group': 'Event', 'id': 32, 'label': '学术'}, {'group': 'Event', 'id': 38, 'label': '期刊'}, {'group': 'Event', 'id': 40, 'label': '员工'}, {'group': 'Event', 'id': 42, 'label': '新京报'}, {'group': 'Event', 'id': 44, 'label': '编辑'}, {'group': 'Event', 'id': 46, 'label': '杂志'}, {'group': 'Event', 'id': 48, 'label': '发布'}, {'group': 'Event', 'id': 21, 'label': '回应称'}, {'group': 'Event', 'id': 27, 'label': '发布声明'}, {'group': 'Event', 'id': 25, 'label': '表示'}, {'group': 'Event', 'id': 29, 'label': '接受采访'}, {'group': 'Event', 'id': 49, 'label': '高频词'}, {'group': 'Event', 'id': 55, 'label': '人物'}, {'group': 'Event', 'id': 61, 'label': '南京大学'}, {'group': 'Event', 'id': 57, 'label': '机构'}, {'group': 'Event', 'id': 60, 'label': '周志华'}, {'group': 'Event', 'id': 65, 'label': '北京大学信息科学技术学院'}];
+      var edges = [{'from': 30, 'label': '', 'to': 19}, {'from': 64, 'label': '', 'to': 19}, {'from': 34, 'label': '', 'to': 19}, {'from': 32, 'label': '', 'to': 19}, {'from': 38, 'label': '', 'to': 19}, {'from': 40, 'label': '', 'to': 19}, {'from': 42, 'label': '', 'to': 19}, {'from': 44, 'label': '', 'to': 19}, {'from': 46, 'label': '', 'to': 19}, {'from': 48, 'label': '', 'to': 19}, {'from': 64, 'label': '', 'to': 21}, {'from': 64, 'label': '', 'to': 27}, {'from': 64, 'label': '', 'to': 25}, {'from': 64, 'label': '', 'to': 27}, {'from': 64, 'label': '', 'to': 29}, {'from': 30, 'label': '', 'to': 49}, {'from': 32, 'label': '', 'to': 49}, {'from': 34, 'label': '', 'to': 49}, {'from': 64, 'label': '', 'to': 49}, {'from': 38, 'label': '', 'to': 49}, {'from': 40, 'label': '', 'to': 49}, {'from': 42, 'label': '', 'to': 49}, {'from': 44, 'label': '', 'to': 49}, {'from': 46, 'label': '', 'to': 49}, {'from': 48, 'label': '', 'to': 49}, {'from': 64, 'label': '', 'to': 55}, {'from': 61, 'label': '', 'to': 57}, {'from': 60, 'label': '', 'to': 55}, {'from': 65, 'label': '', 'to': 57}, {'from': 61, 'label': '', 'to': 60}, {'from': 60, 'label': '', 'to': 61}, {'from': 65, 'label': '', 'to': 64}, {'from': 64, 'label': '', 'to': 65}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    

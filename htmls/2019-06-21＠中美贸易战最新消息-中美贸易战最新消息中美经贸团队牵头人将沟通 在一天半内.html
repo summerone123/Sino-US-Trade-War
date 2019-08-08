@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="VIS/dist/vis.js"></script>
+      <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 133, 'label': '中国'}, {'group': 'Event', 'id': 19, 'label': '关键词'}, {'group': 'Event', 'id': 36, 'label': '商务部'}, {'group': 'Event', 'id': 34, 'label': '沟通'}, {'group': 'Event', 'id': 48, 'label': '新闻'}, {'group': 'Event', 'id': 104, 'label': '美国'}, {'group': 'Event', 'id': 32, 'label': '元首'}, {'group': 'Event', 'id': 38, 'label': '双方'}, {'group': 'Event', 'id': 14, 'label': '准备'}, {'group': 'Event', 'id': 42, 'label': '进行'}, {'group': 'Event', 'id': 18, 'label': '发布会'}, {'group': 'Event', 'id': 20, 'label': '电话'}, {'group': 'Event', 'id': 44, 'label': '会晤'}, {'group': 'Event', 'id': 25, 'label': '输美'}, {'group': 'Event', 'id': 27, 'label': '回到谈判桌'}, {'group': 'Event', 'id': 29, 'label': '准备接触'}, {'group': 'Event', 'id': 49, 'label': '高频词'}, {'group': 'Event', 'id': 46, 'label': '20日'}, {'group': 'Event', 'id': 77, 'label': '地名'}, {'group': 'Event', 'id': 105, 'label': '美'}, {'group': 'Event', 'id': 96, 'label': '中'}, {'group': 'Event', 'id': 58, 'label': '高峰'}, {'group': 'Event', 'id': 75, 'label': '人物'}, {'group': 'Event', 'id': 97, 'label': '大阪'}, {'group': 'Event', 'id': 132, 'label': '莱特希泽'}, {'group': 'Event', 'id': 89, 'label': '莱特'}, {'group': 'Event', 'id': 88, 'label': '希泽'}, {'group': 'Event', 'id': 116, 'label': '美国贸易代表办公室'}, {'group': 'Event', 'id': 71, 'label': '机构'}, {'group': 'Event', 'id': 115, 'label': '国务院'}, {'group': 'Event', 'id': 117, 'label': '加'}, {'group': 'Event', 'id': 127, 'label': '姆努钦'}, {'group': 'Event', 'id': 129, 'label': '日本大阪'}];
+      var edges = [{'from': 133, 'label': '', 'to': 19}, {'from': 36, 'label': '', 'to': 19}, {'from': 34, 'label': '', 'to': 19}, {'from': 48, 'label': '', 'to': 19}, {'from': 104, 'label': '', 'to': 19}, {'from': 32, 'label': '', 'to': 19}, {'from': 38, 'label': '', 'to': 19}, {'from': 14, 'label': '', 'to': 19}, {'from': 42, 'label': '', 'to': 19}, {'from': 18, 'label': '', 'to': 19}, {'from': 20, 'label': '', 'to': 34}, {'from': 32, 'label': '', 'to': 44}, {'from': 133, 'label': '', 'to': 25}, {'from': 133, 'label': '', 'to': 27}, {'from': 104, 'label': '', 'to': 29}, {'from': 133, 'label': '', 'to': 49}, {'from': 32, 'label': '', 'to': 49}, {'from': 34, 'label': '', 'to': 49}, {'from': 36, 'label': '', 'to': 49}, {'from': 38, 'label': '', 'to': 49}, {'from': 104, 'label': '', 'to': 49}, {'from': 42, 'label': '', 'to': 49}, {'from': 44, 'label': '', 'to': 49}, {'from': 46, 'label': '', 'to': 49}, {'from': 48, 'label': '', 'to': 49}, {'from': 133, 'label': '', 'to': 77}, {'from': 105, 'label': '', 'to': 77}, {'from': 96, 'label': '', 'to': 77}, {'from': 104, 'label': '', 'to': 77}, {'from': 58, 'label': '', 'to': 75}, {'from': 97, 'label': '', 'to': 77}, {'from': 132, 'label': '', 'to': 75}, {'from': 89, 'label': '', 'to': 75}, {'from': 88, 'label': '', 'to': 75}, {'from': 116, 'label': '', 'to': 71}, {'from': 115, 'label': '', 'to': 71}, {'from': 117, 'label': '', 'to': 77}, {'from': 127, 'label': '', 'to': 75}, {'from': 129, 'label': '', 'to': 77}, {'from': 105, 'label': '', 'to': 96}, {'from': 96, 'label': '', 'to': 105}, {'from': 133, 'label': '', 'to': 104}, {'from': 104, 'label': '', 'to': 133}, {'from': 89, 'label': '', 'to': 88}, {'from': 88, 'label': '', 'to': 89}, {'from': 105, 'label': '', 'to': 97}, {'from': 97, 'label': '', 'to': 105}, {'from': 97, 'label': '', 'to': 96}, {'from': 96, 'label': '', 'to': 97}, {'from': 105, 'label': '', 'to': 133}, {'from': 105, 'label': '', 'to': 104}, {'from': 133, 'label': '', 'to': 105}, {'from': 104, 'label': '', 'to': 105}, {'from': 115, 'label': '', 'to': 117}, {'from': 115, 'label': '', 'to': 116}, {'from': 117, 'label': '', 'to': 115}, {'from': 117, 'label': '', 'to': 116}, {'from': 116, 'label': '', 'to': 115}, {'from': 116, 'label': '', 'to': 117}, {'from': 127, 'label': '', 'to': 129}, {'from': 127, 'label': '', 'to': 133}, {'from': 129, 'label': '', 'to': 127}, {'from': 129, 'label': '', 'to': 133}, {'from': 133, 'label': '', 'to': 127}, {'from': 133, 'label': '', 'to': 129}, {'from': 133, 'label': '', 'to': 132}, {'from': 132, 'label': '', 'to': 133}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    

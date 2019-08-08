@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="VIS/dist/vis.js"></script>
+      <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 28, 'label': '经济'}, {'group': 'Event', 'id': 19, 'label': '关键词'}, {'group': 'Event', 'id': 30, 'label': '贸易'}, {'group': 'Event', 'id': 40, 'label': '对外'}, {'group': 'Event', 'id': 34, 'label': '表示'}, {'group': 'Event', 'id': 78, 'label': '中国'}, {'group': 'Event', 'id': 79, 'label': '科云'}, {'group': 'Event', 'id': 38, 'label': '世界'}, {'group': 'Event', 'id': 42, 'label': '美方'}, {'group': 'Event', 'id': 44, 'label': '挑起'}, {'group': 'Event', 'id': 20, 'label': '极限'}, {'group': 'Event', 'id': 21, 'label': '施压'}, {'group': 'Event', 'id': 22, 'label': '外宾'}, {'group': 'Event', 'id': 47, 'label': '高频词'}, {'group': 'Event', 'id': 70, 'label': '美国'}, {'group': 'Event', 'id': 49, 'label': '人物'}, {'group': 'Event', 'id': 57, 'label': '地名'}, {'group': 'Event', 'id': 66, 'label': '中'}, {'group': 'Event', 'id': 67, 'label': '美'}, {'group': 'Event', 'id': 58, 'label': '中共中央'}, {'group': 'Event', 'id': 63, 'label': '机构'}, {'group': 'Event', 'id': 74, 'label': '亚美尼亚和平委员会'}, {'group': 'Event', 'id': 62, 'label': '复旦大学'}];
+      var edges = [{'from': 28, 'label': '', 'to': 19}, {'from': 30, 'label': '', 'to': 19}, {'from': 40, 'label': '', 'to': 19}, {'from': 34, 'label': '', 'to': 19}, {'from': 78, 'label': '', 'to': 19}, {'from': 79, 'label': '', 'to': 19}, {'from': 38, 'label': '', 'to': 19}, {'from': 42, 'label': '', 'to': 19}, {'from': 44, 'label': '', 'to': 19}, {'from': 20, 'label': '', 'to': 19}, {'from': 20, 'label': '', 'to': 21}, {'from': 22, 'label': '', 'to': 34}, {'from': 79, 'label': '', 'to': 34}, {'from': 79, 'label': '', 'to': 34}, {'from': 28, 'label': '', 'to': 47}, {'from': 30, 'label': '', 'to': 47}, {'from': 78, 'label': '', 'to': 47}, {'from': 34, 'label': '', 'to': 47}, {'from': 79, 'label': '', 'to': 47}, {'from': 38, 'label': '', 'to': 47}, {'from': 40, 'label': '', 'to': 47}, {'from': 42, 'label': '', 'to': 47}, {'from': 44, 'label': '', 'to': 47}, {'from': 70, 'label': '', 'to': 47}, {'from': 79, 'label': '', 'to': 49}, {'from': 78, 'label': '', 'to': 57}, {'from': 66, 'label': '', 'to': 57}, {'from': 67, 'label': '', 'to': 57}, {'from': 70, 'label': '', 'to': 57}, {'from': 58, 'label': '', 'to': 63}, {'from': 74, 'label': '', 'to': 63}, {'from': 62, 'label': '', 'to': 63}, {'from': 67, 'label': '', 'to': 66}, {'from': 66, 'label': '', 'to': 67}, {'from': 78, 'label': '', 'to': 70}, {'from': 70, 'label': '', 'to': 78}, {'from': 79, 'label': '', 'to': 74}, {'from': 74, 'label': '', 'to': 79}, {'from': 79, 'label': '', 'to': 78}, {'from': 78, 'label': '', 'to': 79}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    

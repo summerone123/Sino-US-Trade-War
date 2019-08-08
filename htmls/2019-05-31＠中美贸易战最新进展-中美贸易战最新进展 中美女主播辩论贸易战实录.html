@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="VIS/dist/vis.js"></script>
+      <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 149, 'label': '刘欣'}, {'group': 'Event', 'id': 19, 'label': '关键词'}, {'group': 'Event', 'id': 160, 'label': '美国'}, {'group': 'Event', 'id': 154, 'label': '翠西'}, {'group': 'Event', 'id': 164, 'label': '中国'}, {'group': 'Event', 'id': 28, 'label': '双方'}, {'group': 'Event', 'id': 68, 'label': '公司'}, {'group': 'Event', 'id': 74, 'label': '产权'}, {'group': 'Event', 'id': 72, 'label': '知识'}, {'group': 'Event', 'id': 16, 'label': '是否'}, {'group': 'Event', 'id': 70, 'label': '问题'}, {'group': 'Event', 'id': 21, 'label': '驳斥言论'}, {'group': 'Event', 'id': 23, 'label': '进行回应'}, {'group': 'Event', 'id': 25, 'label': '应约'}, {'group': 'Event', 'id': 27, 'label': '开辩'}, {'group': 'Event', 'id': 29, 'label': '进行对话'}, {'group': 'Event', 'id': 31, 'label': '纠正介绍'}, {'group': 'Event', 'id': 33, 'label': '介绍'}, {'group': 'Event', 'id': 35, 'label': '称代表'}, {'group': 'Event', 'id': 37, 'label': '是代言人'}, {'group': 'Event', 'id': 39, 'label': '纠正道'}, {'group': 'Event', 'id': 41, 'label': '谈判'}, {'group': 'Event', 'id': 55, 'label': '问道时'}, {'group': 'Event', 'id': 47, 'label': '偷窃'}, {'group': 'Event', 'id': 49, 'label': '反问道'}, {'group': 'Event', 'id': 51, 'label': '出现问题'}, {'group': 'Event', 'id': 53, 'label': '解释道'}, {'group': 'Event', 'id': 57, 'label': '回答道'}, {'group': 'Event', 'id': 59, 'label': '付费'}, {'group': 'Event', 'id': 79, 'label': '高频词'}, {'group': 'Event', 'id': 76, 'label': '节目'}, {'group': 'Event', 'id': 78, 'label': '进行'}, {'group': 'Event', 'id': 99, 'label': '人物'}, {'group': 'Event', 'id': 105, 'label': '地名'}, {'group': 'Event', 'id': 148, 'label': '中'}, {'group': 'Event', 'id': 145, 'label': '美'}, {'group': 'Event', 'id': 128, 'label': '福克斯'}, {'group': 'Event', 'id': 127, 'label': '翠西•里根'}, {'group': 'Event', 'id': 96, 'label': '北京'}, {'group': 'Event', 'id': 137, 'label': '特朗普'}, {'group': 'Event', 'id': 141, 'label': '中国共产党'}, {'group': 'Event', 'id': 109, 'label': '机构'}, {'group': 'Event', 'id': 102, 'label': '中国国际电视台'}, {'group': 'Event', 'id': 161, 'label': '美国公司'}, {'group': 'Event', 'id': 165, 'label': '中国公司'}];
+      var edges = [{'from': 149, 'label': '', 'to': 19}, {'from': 160, 'label': '', 'to': 19}, {'from': 154, 'label': '', 'to': 19}, {'from': 164, 'label': '', 'to': 19}, {'from': 28, 'label': '', 'to': 19}, {'from': 68, 'label': '', 'to': 19}, {'from': 74, 'label': '', 'to': 19}, {'from': 72, 'label': '', 'to': 19}, {'from': 16, 'label': '', 'to': 19}, {'from': 70, 'label': '', 'to': 19}, {'from': 149, 'label': '', 'to': 21}, {'from': 154, 'label': '', 'to': 23}, {'from': 149, 'label': '', 'to': 25}, {'from': 28, 'label': '', 'to': 27}, {'from': 28, 'label': '', 'to': 29}, {'from': 149, 'label': '', 'to': 31}, {'from': 154, 'label': '', 'to': 33}, {'from': 154, 'label': '', 'to': 35}, {'from': 149, 'label': '', 'to': 37}, {'from': 149, 'label': '', 'to': 39}, {'from': 154, 'label': '', 'to': 41}, {'from': 154, 'label': '', 'to': 55}, {'from': 164, 'label': '', 'to': 47}, {'from': 74, 'label': '', 'to': 47}, {'from': 149, 'label': '', 'to': 49}, {'from': 68, 'label': '', 'to': 51}, {'from': 149, 'label': '', 'to': 53}, {'from': 154, 'label': '', 'to': 55}, {'from': 149, 'label': '', 'to': 57}, {'from': 160, 'label': '', 'to': 59}, {'from': 149, 'label': '', 'to': 79}, {'from': 160, 'label': '', 'to': 79}, {'from': 154, 'label': '', 'to': 79}, {'from': 164, 'label': '', 'to': 79}, {'from': 68, 'label': '', 'to': 79}, {'from': 70, 'label': '', 'to': 79}, {'from': 72, 'label': '', 'to': 79}, {'from': 74, 'label': '', 'to': 79}, {'from': 76, 'label': '', 'to': 79}, {'from': 78, 'label': '', 'to': 79}, {'from': 149, 'label': '', 'to': 99}, {'from': 160, 'label': '', 'to': 105}, {'from': 154, 'label': '', 'to': 99}, {'from': 148, 'label': '', 'to': 105}, {'from': 145, 'label': '', 'to': 105}, {'from': 164, 'label': '', 'to': 105}, {'from': 128, 'label': '', 'to': 99}, {'from': 127, 'label': '', 'to': 99}, {'from': 96, 'label': '', 'to': 105}, {'from': 137, 'label': '', 'to': 99}, {'from': 141, 'label': '', 'to': 109}, {'from': 102, 'label': '', 'to': 109}, {'from': 154, 'label': '', 'to': 105}, {'from': 161, 'label': '', 'to': 109}, {'from': 165, 'label': '', 'to': 109}, {'from': 145, 'label': '', 'to': 148}, {'from': 148, 'label': '', 'to': 145}, {'from': 154, 'label': '', 'to': 160}, {'from': 160, 'label': '', 'to': 154}, {'from': 127, 'label': '', 'to': 149}, {'from': 127, 'label': '', 'to': 128}, {'from': 149, 'label': '', 'to': 127}, {'from': 149, 'label': '', 'to': 128}, {'from': 128, 'label': '', 'to': 127}, {'from': 128, 'label': '', 'to': 149}, {'from': 149, 'label': '', 'to': 154}, {'from': 154, 'label': '', 'to': 149}, {'from': 137, 'label': '', 'to': 154}, {'from': 154, 'label': '', 'to': 137}, {'from': 141, 'label': '', 'to': 149}, {'from': 149, 'label': '', 'to': 141}, {'from': 145, 'label': '', 'to': 149}, {'from': 149, 'label': '', 'to': 145}, {'from': 149, 'label': '', 'to': 148}, {'from': 148, 'label': '', 'to': 149}, {'from': 164, 'label': '', 'to': 154}, {'from': 164, 'label': '', 'to': 160}, {'from': 154, 'label': '', 'to': 164}, {'from': 160, 'label': '', 'to': 164}, {'from': 161, 'label': '', 'to': 160}, {'from': 160, 'label': '', 'to': 161}, {'from': 165, 'label': '', 'to': 164}, {'from': 164, 'label': '', 'to': 165}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    

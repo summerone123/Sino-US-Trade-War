@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="VIS/dist/vis.js"></script>
+      <link href="VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 30, 'label': '出口'}, {'group': 'Event', 'id': 19, 'label': '关键词'}, {'group': 'Event', 'id': 34, 'label': '报道'}, {'group': 'Event', 'id': 68, 'label': '中国'}, {'group': 'Event', 'id': 46, 'label': '稀土'}, {'group': 'Event', 'id': 38, 'label': '减少'}, {'group': 'Event', 'id': 42, 'label': '贸易'}, {'group': 'Event', 'id': 12, 'label': '关税'}, {'group': 'Event', 'id': 48, 'label': '下跌'}, {'group': 'Event', 'id': 16, 'label': '可能'}, {'group': 'Event', 'id': 36, 'label': '进口'}, {'group': 'Event', 'id': 20, 'label': '活动'}, {'group': 'Event', 'id': 23, 'label': '减少美元'}, {'group': 'Event', 'id': 27, 'label': '开始下降'}, {'group': 'Event', 'id': 60, 'label': '新华社'}, {'group': 'Event', 'id': 49, 'label': '高频词'}, {'group': 'Event', 'id': 40, 'label': '5月'}, {'group': 'Event', 'id': 44, 'label': '下降'}, {'group': 'Event', 'id': 59, 'label': '地名'}, {'group': 'Event', 'id': 69, 'label': '美'}, {'group': 'Event', 'id': 54, 'label': '美国磐聚网公司'}, {'group': 'Event', 'id': 63, 'label': '机构'}, {'group': 'Event', 'id': 56, 'label': '美国标准全球公司'}, {'group': 'Event', 'id': 58, 'label': '美国'}, {'group': 'Event', 'id': 62, 'label': '国家发展和改革委员会'}, {'group': 'Event', 'id': 64, 'label': '保罗·图德·琼斯'}, {'group': 'Event', 'id': 65, 'label': '人物'}];
+      var edges = [{'from': 30, 'label': '', 'to': 19}, {'from': 34, 'label': '', 'to': 19}, {'from': 68, 'label': '', 'to': 19}, {'from': 46, 'label': '', 'to': 19}, {'from': 38, 'label': '', 'to': 19}, {'from': 42, 'label': '', 'to': 19}, {'from': 12, 'label': '', 'to': 19}, {'from': 48, 'label': '', 'to': 19}, {'from': 16, 'label': '', 'to': 19}, {'from': 36, 'label': '', 'to': 19}, {'from': 20, 'label': '', 'to': 48}, {'from': 68, 'label': '', 'to': 23}, {'from': 68, 'label': '', 'to': 27}, {'from': 30, 'label': '', 'to': 27}, {'from': 60, 'label': '', 'to': 34}, {'from': 30, 'label': '', 'to': 49}, {'from': 68, 'label': '', 'to': 49}, {'from': 34, 'label': '', 'to': 49}, {'from': 36, 'label': '', 'to': 49}, {'from': 38, 'label': '', 'to': 49}, {'from': 40, 'label': '', 'to': 49}, {'from': 42, 'label': '', 'to': 49}, {'from': 44, 'label': '', 'to': 49}, {'from': 46, 'label': '', 'to': 49}, {'from': 48, 'label': '', 'to': 49}, {'from': 68, 'label': '', 'to': 59}, {'from': 69, 'label': '', 'to': 59}, {'from': 54, 'label': '', 'to': 63}, {'from': 56, 'label': '', 'to': 63}, {'from': 58, 'label': '', 'to': 59}, {'from': 60, 'label': '', 'to': 63}, {'from': 62, 'label': '', 'to': 63}, {'from': 64, 'label': '', 'to': 65}, {'from': 69, 'label': '', 'to': 68}, {'from': 68, 'label': '', 'to': 69}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    

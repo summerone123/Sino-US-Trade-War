@@ -1,0 +1,52 @@
+
+    <html>
+    <head>
+      <script type="text/javascript" src="../VIS/dist/vis.js"></script>
+      <link href="../VIS/dist/vis.css" rel="stylesheet" type="text/css">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+
+    <div id="VIS_draw"></div>
+
+    <script type="text/javascript">
+      var nodes = [{'group': 'Event', 'id': 86, 'label': '关税'}, {'group': 'Event', 'id': 19, 'label': '关键词'}, {'group': 'Event', 'id': 166, 'label': '美国'}, {'group': 'Event', 'id': 90, 'label': '美方'}, {'group': 'Event', 'id': 92, 'label': '中方'}, {'group': 'Event', 'id': 239, 'label': '中国'}, {'group': 'Event', 'id': 98, 'label': '消费者'}, {'group': 'Event', 'id': 102, 'label': '经济'}, {'group': 'Event', 'id': 96, 'label': '贸易战'}, {'group': 'Event', 'id': 100, 'label': '加征'}, {'group': 'Event', 'id': 18, 'label': '宣布'}, {'group': 'Event', 'id': 21, 'label': '反制对'}, {'group': 'Event', 'id': 29, 'label': '想打'}, {'group': 'Event', 'id': 104, 'label': '威胁'}, {'group': 'Event', 'id': 71, 'label': '输美'}, {'group': 'Event', 'id': 39, 'label': '宣布加'}, {'group': 'Event', 'id': 35, 'label': '威胁上调'}, {'group': 'Event', 'id': 41, 'label': '宣布上调'}, {'group': 'Event', 'id': 45, 'label': '上调'}, {'group': 'Event', 'id': 47, 'label': '抛有利论'}, {'group': 'Event', 'id': 49, 'label': '支付关税'}, {'group': 'Event', 'id': 51, 'label': '带来财富'}, {'group': 'Event', 'id': 53, 'label': '减速'}, {'group': 'Event', 'id': 55, 'label': '是馅饼'}, {'group': 'Event', 'id': 57, 'label': '欣欣向荣'}, {'group': 'Event', 'id': 58, 'label': '伙伴'}, {'group': 'Event', 'id': 61, 'label': '造成承担'}, {'group': 'Event', 'id': 63, 'label': '承担成本'}, {'group': 'Event', 'id': 67, 'label': '减少岗位'}, {'group': 'Event', 'id': 69, 'label': '征收关税'}, {'group': 'Event', 'id': 73, 'label': '收取'}, {'group': 'Event', 'id': 75, 'label': '承受'}, {'group': 'Event', 'id': 77, 'label': '强加关税'}, {'group': 'Event', 'id': 79, 'label': '是中国'}, {'group': 'Event', 'id': 81, 'label': '伤害腹地'}, {'group': 'Event', 'id': 83, 'label': '影响有'}, {'group': 'Event', 'id': 85, 'label': '发展'}, {'group': 'Event', 'id': 105, 'label': '高频词'}, {'group': 'Event', 'id': 129, 'label': '地名'}, {'group': 'Event', 'id': 225, 'label': '美'}, {'group': 'Event', 'id': 234, 'label': '中'}, {'group': 'Event', 'id': 238, 'label': '加'}, {'group': 'Event', 'id': 233, 'label': '耿爽'}, {'group': 'Event', 'id': 117, 'label': '人物'}, {'group': 'Event', 'id': 231, 'label': '新华社'}, {'group': 'Event', 'id': 135, 'label': '机构'}, {'group': 'Event', 'id': 235, 'label': '北京'}, {'group': 'Event', 'id': 122, 'label': '美国政府'}, {'group': 'Event', 'id': 229, 'label': '外交部'}, {'group': 'Event', 'id': 126, 'label': '中国国务院'}, {'group': 'Event', 'id': 128, 'label': '英国'}, {'group': 'Event', 'id': 249, 'label': '纽约联邦储备银行'}, {'group': 'Event', 'id': 250, 'label': '普林斯顿大学'}, {'group': 'Event', 'id': 251, 'label': '哥伦比亚大学'}];
+      var edges = [{'from': 86, 'label': '', 'to': 19}, {'from': 166, 'label': '', 'to': 19}, {'from': 90, 'label': '', 'to': 19}, {'from': 92, 'label': '', 'to': 19}, {'from': 239, 'label': '', 'to': 19}, {'from': 98, 'label': '', 'to': 19}, {'from': 102, 'label': '', 'to': 19}, {'from': 96, 'label': '', 'to': 19}, {'from': 100, 'label': '', 'to': 19}, {'from': 18, 'label': '', 'to': 19}, {'from': 239, 'label': '', 'to': 21}, {'from': 239, 'label': '', 'to': 29}, {'from': 90, 'label': '', 'to': 104}, {'from': 239, 'label': '', 'to': 71}, {'from': 239, 'label': '', 'to': 29}, {'from': 90, 'label': '', 'to': 39}, {'from': 239, 'label': '', 'to': 71}, {'from': 90, 'label': '', 'to': 35}, {'from': 239, 'label': '', 'to': 71}, {'from': 90, 'label': '', 'to': 39}, {'from': 90, 'label': '', 'to': 41}, {'from': 239, 'label': '', 'to': 71}, {'from': 86, 'label': '', 'to': 45}, {'from': 90, 'label': '', 'to': 47}, {'from': 239, 'label': '', 'to': 49}, {'from': 86, 'label': '', 'to': 51}, {'from': 239, 'label': '', 'to': 53}, {'from': 86, 'label': '', 'to': 55}, {'from': 102, 'label': '', 'to': 57}, {'from': 58, 'label': '', 'to': 100}, {'from': 86, 'label': '', 'to': 61}, {'from': 98, 'label': '', 'to': 63}, {'from': 239, 'label': '', 'to': 71}, {'from': 166, 'label': '', 'to': 67}, {'from': 166, 'label': '', 'to': 69}, {'from': 239, 'label': '', 'to': 71}, {'from': 166, 'label': '', 'to': 73}, {'from': 98, 'label': '', 'to': 75}, {'from': 166, 'label': '', 'to': 77}, {'from': 166, 'label': '', 'to': 79}, {'from': 86, 'label': '', 'to': 81}, {'from': 96, 'label': '', 'to': 83}, {'from': 102, 'label': '', 'to': 85}, {'from': 86, 'label': '', 'to': 105}, {'from': 166, 'label': '', 'to': 105}, {'from': 90, 'label': '', 'to': 105}, {'from': 92, 'label': '', 'to': 105}, {'from': 239, 'label': '', 'to': 105}, {'from': 96, 'label': '', 'to': 105}, {'from': 98, 'label': '', 'to': 105}, {'from': 100, 'label': '', 'to': 105}, {'from': 102, 'label': '', 'to': 105}, {'from': 104, 'label': '', 'to': 105}, {'from': 166, 'label': '', 'to': 129}, {'from': 239, 'label': '', 'to': 129}, {'from': 225, 'label': '', 'to': 129}, {'from': 234, 'label': '', 'to': 129}, {'from': 238, 'label': '', 'to': 129}, {'from': 233, 'label': '', 'to': 117}, {'from': 231, 'label': '', 'to': 135}, {'from': 235, 'label': '', 'to': 129}, {'from': 122, 'label': '', 'to': 135}, {'from': 229, 'label': '', 'to': 135}, {'from': 126, 'label': '', 'to': 135}, {'from': 128, 'label': '', 'to': 129}, {'from': 249, 'label': '', 'to': 135}, {'from': 250, 'label': '', 'to': 135}, {'from': 251, 'label': '', 'to': 135}, {'from': 239, 'label': '', 'to': 225}, {'from': 225, 'label': '', 'to': 239}, {'from': 225, 'label': '', 'to': 234}, {'from': 234, 'label': '', 'to': 225}, {'from': 239, 'label': '', 'to': 166}, {'from': 166, 'label': '', 'to': 239}, {'from': 239, 'label': '', 'to': 234}, {'from': 234, 'label': '', 'to': 239}, {'from': 231, 'label': '', 'to': 235}, {'from': 235, 'label': '', 'to': 231}, {'from': 225, 'label': '', 'to': 166}, {'from': 234, 'label': '', 'to': 166}, {'from': 166, 'label': '', 'to': 225}, {'from': 166, 'label': '', 'to': 234}, {'from': 238, 'label': '', 'to': 166}, {'from': 166, 'label': '', 'to': 238}, {'from': 229, 'label': '', 'to': 239}, {'from': 229, 'label': '', 'to': 231}, {'from': 229, 'label': '', 'to': 233}, {'from': 229, 'label': '', 'to': 225}, {'from': 229, 'label': '', 'to': 235}, {'from': 229, 'label': '', 'to': 234}, {'from': 239, 'label': '', 'to': 229}, {'from': 239, 'label': '', 'to': 231}, {'from': 239, 'label': '', 'to': 233}, {'from': 239, 'label': '', 'to': 235}, {'from': 231, 'label': '', 'to': 229}, {'from': 231, 'label': '', 'to': 239}, {'from': 231, 'label': '', 'to': 233}, {'from': 231, 'label': '', 'to': 225}, {'from': 231, 'label': '', 'to': 234}, {'from': 233, 'label': '', 'to': 229}, {'from': 233, 'label': '', 'to': 239}, {'from': 233, 'label': '', 'to': 231}, {'from': 233, 'label': '', 'to': 225}, {'from': 233, 'label': '', 'to': 235}, {'from': 233, 'label': '', 'to': 234}, {'from': 225, 'label': '', 'to': 229}, {'from': 225, 'label': '', 'to': 231}, {'from': 225, 'label': '', 'to': 233}, {'from': 225, 'label': '', 'to': 235}, {'from': 235, 'label': '', 'to': 229}, {'from': 235, 'label': '', 'to': 239}, {'from': 235, 'label': '', 'to': 233}, {'from': 235, 'label': '', 'to': 225}, {'from': 235, 'label': '', 'to': 234}, {'from': 234, 'label': '', 'to': 229}, {'from': 234, 'label': '', 'to': 231}, {'from': 234, 'label': '', 'to': 233}, {'from': 234, 'label': '', 'to': 235}, {'from': 239, 'label': '', 'to': 238}, {'from': 238, 'label': '', 'to': 239}, {'from': 249, 'label': '', 'to': 251}, {'from': 249, 'label': '', 'to': 250}, {'from': 251, 'label': '', 'to': 249}, {'from': 251, 'label': '', 'to': 250}, {'from': 250, 'label': '', 'to': 249}, {'from': 250, 'label': '', 'to': 251}];
+
+      var container = document.getElementById("VIS_draw");
+
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+
+      var options = {
+          nodes: {
+              shape: 'circle',
+              size: 15,
+              font: {
+                  size: 15
+              }
+          },
+          edges: {
+              font: {
+                  size: 10,
+                  align: 'center'
+              },
+              color: 'red',
+              arrows: {
+                  to: {enabled: true, scaleFactor: 1.2}
+              },
+              smooth: {enabled: true}
+          },
+          physics: {
+              enabled: true
+          }
+      };
+
+      var network = new vis.Network(container, data, options);
+
+    </script>
+    </body>
+    </html>
+    
